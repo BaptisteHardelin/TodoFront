@@ -1,0 +1,26 @@
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.todo {
+  border: solid;
+  grid-column: 1 / span 1;
+}
+
+.in_progress {
+  border: solid;
+  border-color: black;
+  grid-column: 2 / span 1;
+}
+
+.done {
+  border: solid;
+  border-color: black;
+  grid-column: 3 / span 1;
+}
+
+ul {
+  list-style: none;
+}
