@@ -24,7 +24,7 @@ const NewTodo = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3000/createTodo", {
+      .post("http://localhost:8000/createTodo", {
         title,
         content,
         status: "todo",

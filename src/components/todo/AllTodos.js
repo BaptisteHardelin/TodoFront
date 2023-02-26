@@ -2,17 +2,29 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Todo from "./todo";
 import StatusTodos from "./StatusTodos";
+import { useNavigate } from "react-router-dom";
 
 const AllTodos = () => {
   const [todos, setTodos] = useState([]);
   const [toggle, setToggle] = useState(true);
 
+  const navigate = useNavigate();
+  const user = localStorage.getItem("user");
+  const prevUrl = localStorage.getItem("reload");
+
   useEffect(() => {
+    if (prevUrl) {
+      window.location.reload();
+      localStorage.removeItem("reload");
+    }
     axios.get("http://localhost:8000/getAllTodos").then((res) => {
       setTodos(res.data);
       setToggle(false);
     });
-  }, [toggle]);
+    if (user === null) {
+      navigate("/login");
+    }
+  }, [toggle, user, navigate, prevUrl]);
 
   // todo or in progress or done
   // Get the todo to update with the id
