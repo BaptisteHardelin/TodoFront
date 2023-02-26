@@ -61,8 +61,12 @@ const AllTodos = () => {
 
   return (
     <div className="tasks">
+      <div className="top"></div>
+      <div className="bottom"></div>
+      <div className="left"></div>
+      <div className="right"></div>
       <div className="todo">
-        <h1>TODO</h1>
+        <h1 className="columStatus">TODO</h1>
         <StatusTodos
           arrayTodo={todos}
           givenStatus="todo"
@@ -72,7 +76,7 @@ const AllTodos = () => {
       </div>
 
       <div className="in_progress">
-        <h1>In progress</h1>
+        <h1 className="columStatus">In progress</h1>
         <StatusTodos
           arrayTodo={todos}
           givenStatus="in_progress"
@@ -82,7 +86,7 @@ const AllTodos = () => {
       </div>
 
       <div className="done">
-        <h1>Done</h1>
+        <h1 className="columStatus">Done</h1>
         <div>
           {todos.map((todo) => {
             return (

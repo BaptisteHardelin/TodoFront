@@ -36,12 +36,14 @@ const Todo = ({ title, content, status, id, setToggle }) => {
 
   return (
     <>
-      <Card style={{ width: "18rem" }} className={status}>
-        <Card.Body>
-          <Button variant="outline-primary" onClick={() => handleUpdate()}>
-            Update
-          </Button>
+      <Card
+        style={{ width: "18rem" }}
+        className={`bg-dark text-white ${status}`}
+      >
+        <Card.Body className="my-card-body">
+          <Button onClick={() => handleUpdate()}>Update</Button>
           <Card.Title
+            className="my-card-title"
             contentEditable={true}
             suppressContentEditableWarning={true}
             onInput={(e) => handleChangeTitle(e)}
@@ -49,6 +51,7 @@ const Todo = ({ title, content, status, id, setToggle }) => {
             {title}
           </Card.Title>
           <Card.Text
+            className="my-card-text"
             contentEditable={true}
             suppressContentEditableWarning={true}
             onInput={(e) => handleChangeContent(e)}

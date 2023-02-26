@@ -4,21 +4,27 @@ import { Link } from "react-router-dom";
 const MyNavbar = () => {
   const user = localStorage.getItem("user");
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="myNavbar">
       <Container>
-        <Nav.Item>
+        <Nav.Item className="navItem">
           <h1>TODO {user}</h1>
         </Nav.Item>
         {user !== null
           ? [
               <Nav.Item key="1">
-                <Link to="/allTodos">Les todos</Link>
+                <Link to="/allTodos" className="navLink">
+                  Les todos
+                </Link>
               </Nav.Item>,
               <Nav.Item key="2">
-                <Link to="/newTodo">Ajouter todos</Link>
+                <Link to="/newTodo" className="navLink">
+                  Ajouter todos
+                </Link>
               </Nav.Item>,
               <Nav.Item key="3">
-                <Link to="/logout">Logout</Link>
+                <Link to="/logout" className="navLink">
+                  Logout
+                </Link>
               </Nav.Item>,
             ]
           : ""}
@@ -26,10 +32,14 @@ const MyNavbar = () => {
         {user === null
           ? [
               <Nav.Item key="4">
-                <Link to="/register">Register</Link>
+                <Link to="/register" className="navLink">
+                  Register
+                </Link>
               </Nav.Item>,
               <Nav.Item key="5">
-                <Link to="/login">Login</Link>
+                <Link to="/login" className="navLink">
+                  Login
+                </Link>
               </Nav.Item>,
             ]
           : ""}
